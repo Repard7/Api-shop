@@ -22,14 +22,6 @@ namespace WebApiUseSqlLiteItog.Controllers
             _context = context;
         }
 
-        //лишнее, можно убрать
-        [HttpGet, Route("GetAllUsers")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
-        {
-            return await _context.Users.ToListAsync();
-        }
-
-
 
         //Регистрация
         [HttpPost, Route("SignUp")]
@@ -62,17 +54,6 @@ namespace WebApiUseSqlLiteItog.Controllers
             await _context.SaveChangesAsync();
             return StatusCode(201, encodedJwt);
             
-        }
-        public async Task<ActionResult<User>> GetHelpPostSign(int email)
-        {
-            var user = await _context.Users.FindAsync(email);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return user;
         }
 
 
