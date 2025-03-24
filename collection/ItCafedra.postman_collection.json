@@ -1,0 +1,976 @@
+{
+	"info": {
+		"_postman_id": "be0fab75-2c43-4ea4-a4b3-d11f724dd267",
+		"name": "ItCafedra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43203027"
+	},
+	"item": [
+		{
+			"name": "ProductList",
+			"item": [
+				{
+					"name": "GetAllProducts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/products",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						},
+						"description": "Стабильный url, доступ: все, возвращает информацию о всех продуктах на главной странице"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/products",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/product/id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"product",
+								"id"
+							]
+						},
+						"description": "Вместо \"id\" вставляется id товара, который необходимо удалить, доступ: администратор, удаляет информацию об продукте с указанным id из главной страницы"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/product/1",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/product/2",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"product",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "AddNewProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/product",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						},
+						"description": "Стабильный url, доступ: администратор, добавляет информацию о новом товаре на главную страницу"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"product_1\",\r\n    \"description\":\"first product\",\r\n    \"price\":\"100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/product",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"product_2\",\r\n    \"description\":\"second product\",\r\n    \"price\":\"200\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/product",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "ChangeProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/product/id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"product",
+								"id"
+							]
+						},
+						"description": "Вместо \"id\" вставляется id товара, который необходимо изменить, доступ: администратор, изменяет информацию о товаре с указанным id, на информацию из тела запроса"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"product_1_modified\",\r\n    \"description\":\"first product_modified\",\r\n    \"price\":\"1000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/product/id",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"product",
+										"id"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"product_2_modified\",\r\n    \"description\":\"seconf product_modified\",\r\n    \"price\":\"2000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/product/id",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"product",
+										"id"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Группа запросов, которые относятся к главной странице товаров"
+		},
+		{
+			"name": "CartList",
+			"item": [
+				{
+					"name": "GetAllCart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/cart",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"cart"
+							]
+						},
+						"description": "Стабильный url, доступ: пользователь, возвращает все продукты из страницы корзины"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/cart",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "AddProductInCart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/cart/product_id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"cart",
+								"product_id"
+							]
+						},
+						"description": "Вместо \"id\" вставляется id товара из главной страницы, который необходимо добавить в корзину, доступ: пользователь, добавляет товар из главной страницы в корзину"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/cart/1",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"cart",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/cart/product_id",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"cart",
+										"product_id"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DeletProductInCart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/cart/id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"cart",
+								"id"
+							]
+						},
+						"description": "Вместо \"id\" вставляется id товара, который необходимо удалить из страницы корзины, доступ: пользователь, удаляет товар из корзины"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/car/1",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"car",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/car/2",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"car",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Группа запросов, которые относятся к странице товаров в корзине"
+		},
+		{
+			"name": "OrderList",
+			"item": [
+				{
+					"name": "GetAllOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/order",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Стабильный url, доступ: пользователь, возвращает все заказанные продукты"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Token}}/order",
+									"host": [
+										"{{Token}}"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "AddOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/order/cart_id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"order",
+								"cart_id"
+							]
+						},
+						"description": "Вместо \"id\" вставляется id товара из корзины, который необходимо заказать, доступ: пользователь, заказывает товар из корзины"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{Token}}/order/1",
+									"host": [
+										"{{Token}}"
+									],
+									"path": [
+										"order",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/order/2",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"order",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Группа запросов, которые относятся к странице оформленных заказов"
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/SignUp",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SignUp"
+							]
+						},
+						"description": "Стабильный url, доступ: все, принимает в теле 4 параметра, обязательные: fio, email, password, и необязательный: isadmin(1 - пользователь является админом, 0 - пользователь не является админом). Создаёт нового пользователя и возвращает токен. При тестировании запросов в postman необходимо вставить полученный токен в значение переменной {{Token}} во вкладке \"Авторизация\", и тогда будет происходить авторизация и проверка на статус пользователя (admin или user) во всех остальных запросах к api"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fio\":\"Сеергей Сергеевич Сергеев\",\r\n    \"email\":\"sergey@gmail.com\",\r\n    \"password\":\"sergey123\",\r\n    \"isadmin\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Token}}/SignUp",
+									"host": [
+										"{{Token}}"
+									],
+									"path": [
+										"SignUp"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fio\":\"Иван Иванович Иванов\",\r\n    \"email\":\"ivan@gmail.com\",\r\n    \"password\":\"ivan123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/SignUp",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"SignUp"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Authentication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/Login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Login"
+							]
+						},
+						"description": "Стабильный url, доступ: все, принимает в теле 2 параметра, обязательные: email и password. Создает и возвращает токен пользователя. При тестировании запросов в postman необходимо вставить полученный токен в значение переменной {{Token}} во вкладке \"Авторизация\", и тогда будет происходить авторизация и проверка на статус пользователя (admin или user) во всех остальных запросах к api"
+					},
+					"response": [
+						{
+							"name": "Example1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"sergey@gmail.com\",\r\n    \"password\":\"sergey123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Token}}/Login",
+									"host": [
+										"{{Token}}"
+									],
+									"path": [
+										"Login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Example2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ivan@gmail.com\",\r\n    \"password\":\"ivan123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/Login",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"Login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Группа запросов, которые относятся к управлению правами доступа"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://localhost:44322/api-shop",
+			"type": "string"
+		},
+		{
+			"key": "Token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
